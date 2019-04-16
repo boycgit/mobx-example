@@ -2,9 +2,13 @@ var colors = tinygradient('#00E5E3', '#0008BF')
   .hsv(10)
   .map(o => o.toHexString());
 var ConsoleStyles = colors.map((color, index) => {
-  var fontColor = index > 2 ? 'white' : 'black';
+  var fontColor = index > 2 ? '#f9f9f9' : 'black';
   return `color:${fontColor};background-color:${color};font-weight:bold;`;
 });
+
+var colorLog = function(...msgs) {
+  console.log(`%c${msgs.join('')}`, 'color:white;background-color:#BB5561;');
+};
 
 function getStyles(depth) {
   var len = ConsoleStyles.length;

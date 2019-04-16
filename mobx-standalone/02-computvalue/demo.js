@@ -1,13 +1,12 @@
 var bankUser = mobx.observable({
-  a: 3,
-  b: 2,
+  income: 3,
+  debit: 2,
   get divisor() {
-    return this.a / this.b; // 计算除数
+    return this.income / this.debit; // 计算除数
   }
 });
 mobx.autorun(() => {
-  console.log('view:', bankUser.a);
+  colorLog('bankUser.income: ', bankUser.income);
 });
 
 // console.log('==========', bankUser.divisor);
-// bankUser.a = 4;

@@ -3824,7 +3824,7 @@ and limitations under the License.
               while (i--) removeObserver(obs[i], derivation);
               derivation.dependenciesState =
                 exports.IDerivationState.NOT_TRACKING;
-            }
+            };
             function untracked(action) {
               var prev = untrackedStart();
               var res = action();
@@ -4634,7 +4634,7 @@ var globalState = mobx.extras.getGlobalState();
 var depth = -1;
 var startStr = (depth, fnName, args) => {
   return [
-    `%c[${depth}][${fnName}][start][batch=${
+    `${'  '.repeat(depth)}%c[${depth}][${fnName}][start][batch=${
       globalState.inBatch
     }] ${args[0].toString()}`,
     ConsoleStyles[depth]
@@ -4642,7 +4642,7 @@ var startStr = (depth, fnName, args) => {
 };
 var endStr = (depth, fnName, retval) => {
   return [
-    `%c[${depth}][${fnName}][end][batch=${
+    `${'  '.repeat(depth)}%c[${depth}][${fnName}][end][batch=${
       globalState.inBatch
     }] retval:${(retval && retval.toString()) || 'null'}`,
     ConsoleStyles[depth]
